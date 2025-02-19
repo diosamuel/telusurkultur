@@ -5,20 +5,245 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            corePlugins: {
-                preflight: false, // Disable Tailwind's global styles
-            }
-        };
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&family=Manrope:wght@200..800&display=swap"
+        rel="stylesheet">
     <title>Web Component Starter</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/Parallax.js v3.1.0/parallax-master/src/parallax.min.js"></script>
+    <script src="./js/jquery-3.7.1/jquery-3.7.1.min.js"></script>
+
+    <style>
+        /* Marquee Container
+        .marquee-container {
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #333;
+            background: #f8f8f8;
+        }
+
+        .marquee-content {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
+        }
+
+        .marquee-item {
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            text-align: center;
+            margin-bottom: 5px;
+            font-size: 16px;
+        } */
+    </style>
 </head>
 
-<body>
-    <my-component></my-component>
-    <h1 class="bg-red-300">He</h1>
+<body class="bg-[#1E1E1E]  overflow-x-hidden">
+    <navbar></navbar>
+    <div class="flex items-center justify-center w-full h-screen md:h-fit">
+        <img src="../assets/Header.png" alt="Header Image" class="w-full h-full md:h-fit object-cover object-center" />
+        <img src="../assets/masklogo.png" class="absolute animate-pulse" />
+    </div>
+
+    <div class="h-screen flex flex-col items-center w-full justify-center">
+        <img src="../assets/icon.svg" class="w-[40px]" />
+        <h1 class="font-averia tracking-tighter text-white text-6xl md:text-4xl text-center">Jati Diri Nusantara</h1>
+        <p class="font-manrope md:w-[50%] w-full mx-3 text-center text-white text-lg opacity-[0.8] my-5">Lorem ipsum
+            dolor sit amet
+            consectetur adipisicing elit. Ex, perspiciatis repellendus ad ipsum temporibus, harum tenetur officia
+            aperiam magni ratione nam alias eos tempore quod possimus. In sint quaerat quo!</p>
+        <button class="bg-[#F85937] z-[99] px-5 py-3 text-[#1E1E1E] rounded-full">Lihat Semua</button>
+        <div class="flex items-center justify-center">
+            <div class="w-full absolute overflow-hidden">
+                <div id="scene" class="w-full z-[-99] h-screen">
+                    <!-- right -->
+                    <img src="../assets/prambanan.png" class="w-[50em] absolute !top-[10em] !left-[55em]"
+                        data-depth="0.2" />
+                    <img src="../assets/wayangabu.png" class="w-[20em] absolute !top-[20em] !left-[55em]"
+                        data-depth="0.4" />
+                    <!-- left -->
+                    <img src="../assets/wayangabuflip.png" class="w-[20em] absolute !top-[20em] z-[99]"
+                        data-depth="1" />
+                    <img src="../assets/barong.png" class="w-[50em] absolute !top-[15em] !left-[-20em]"
+                        data-depth="0.5" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="h-screen flex flex-col items-center w-full bg-[#F85937] rounded-t-[5em]">
+        <div class="w-full h-full overflow-hidden relative marquee-container">
+            <div class="absolute w-full flex flex-col marquee-content">
+                <div class="flex flex-col marquee-item m-[5em] gap-5">
+                    <div class="p-2 w-64 h-64 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                    <div class="space-y-1">
+                        <p class="font-averia text-2xl">Perang Salib</p>
+                        <p>+ 500 SM</p>
+                    </div>
+                </div>
+                <div class="flex flex-col marquee-item m-[15em] gap-5">
+                    <div class="p-2 w-32 h-32 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                    <div class="space-y-1">
+                        <p class="font-averia text-lg">Perang Salib</p>
+                        <p>+ 500 SM</p>
+                    </div>
+                </div>
+                <div class="flex flex-col marquee-item ml-[50em] gap-5">
+                    <div class="p-2 w-64 h-64 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                    <div class="space-y-1">
+                        <p class="font-averia text-2xl">Perang Salib</p>
+                        <p>+ 500 SM</p>
+                    </div>
+                </div>
+                <div class="flex flex-col marquee-item ml-[70em] gap-5">
+                    <div class="p-2 w-48 h-48 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                    <div class="space-y-1">
+                        <p class="font-averia text-2xl">Perang Salib</p>
+                        <p>+ 500 SM</p>
+                    </div>
+                </div>
+                <div class="flex flex-col marquee-item ml-[40em] gap-5">
+                    <div class="p-2 w-32 h-32 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                    <div class="space-y-1">
+                        <p class="font-averia text-2xl">Perang Salib</p>
+                        <p>+ 500 SM</p>
+                    </div>
+                </div>
+                <div class="flex flex-col marquee-item ml-[90em] gap-5">
+                    <div class="p-2 w-48 h-48 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                    <div class="space-y-1">
+                        <p class="font-averia text-lg">Perang Salib</p>
+                        <p>+ 500 SM</p>
+                    </div>
+                </div>
+                <div class="flex flex-col marquee-item ml-[20em] gap-5">
+                    <div class="p-2 w-48 h-48 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                    <div class="space-y-1">
+                        <p class="font-averia text-lg">Perang Salib</p>
+                        <p>+ 500 SM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute flex flex-col items-center">
+            <h1 class="font-averia tracking-tighter text-white text-4xl mt-10">Asa Cinta Narasi Budaya</h1>
+            <p class="font-manrope w-[50%] text-center text-white text-lg opacity-[0.8] my-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, perspiciatis repellendus ad ipsum temporibus, harum tenetur officia aperiam magni ratione nam alias eos tempore quod possimus. In sint quaerat quo!</p>
+        </div>
+    </div>
+
+    <div class="flex h-screen w-full bg-[url(./assets/bg-jelajah.png)] bg-cover bg-center">
+        <div
+            class="flex flex-col h-full text-left md:w-5/12 w-full h-full justify-center gap-5 md:ml-[3em] mx-3 z-[99]">
+            <h1 class="font-averia tracking-tighter text-white text-4xl">Menapak Tilas Kekayaan Budaya</h1>
+            <p class="text-white font-manrope">Siap menjelajah kekayaan budaya Indonesia dengan cara yang seru dan gak
+                ngebosenin? TelusurKultur hadir
+                buat kamu yang penasaran sama sejarah, seni, dan tradisi Nusantara, tapi dengan cara yang lebih asik dan
+                interaktif!</p>
+            <button class="bg-[#F85937] z-[99] px-5 py-3 text-[#1E1E1E] rounded-full w-fit">Lihat Semua</button>
+        </div>
+        <div class="absolute right-0 h-[316.66px] mt-[10em] opacity-[0.3]" id="indonesiamap">
+            <img src="../assets/indonesia 2.svg" />
+            <img src="../assets/indonesia 3.svg" class="img-parallax absolute md:top-[5em]" />
+            <img src="../assets/indonesia 4.svg" class="img-parallax absolute md:top-[-10em]" />
+            <img src="../assets/indonesia 5.svg" class="img-parallax absolute md:top-[25em]" />
+            <img src="../assets/indonesia 6.svg" class="img-parallax absolute md:top-[-15em]" />
+            <img src="../assets/indonesia 7.svg" class="img-parallax absolute md:top-[10em]" />
+            <img src="../assets/indonesia 8.svg" class="img-parallax absolute md:top-[-5em]" />
+        </div>
+    </div>
+
+    <div class="flex flex-col w-full items-center gap-3">
+        <img src="./assets/logogame.png" class="w-52 my-12" />
+        <p class="font-manrope text-white w-8/12 text-center">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Optio repellat numquam magni autem error quam nulla officiis assumenda unde ullam eveniet labore eum, ea non
+            harum modi et adipisci voluptatibus!
+        </p>
+
+        <!-- First Image with Text Overlay -->
+        <div class="relative w-9/12 h-[100em] mx-[10em]">
+            <img class="w-full h-full bg-white rounded" src="./assets/bg-wayang.png" />
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-t">
+                <p>Simulasi Wayang Kulit</p>
+            </div>
+        </div>
+
+        <!-- Second Image with Text Overlay -->
+        <div class="relative w-9/12 h-[100em] mx-[10em]">
+            <img class="w-full h-full bg-white rounded" src="./assets/batik/sekarjagad.jpg" />
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-t">
+                <p>Batik Sekar Jagad</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="bg-[#F85937] text-white py-6 h-[300px]">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
+            <!-- Logo di Kiri -->
+            <div class="mb-4 md:mb-0">
+                <img src="./assets/logo.png" alt="Logo" class="w-24">
+            </div>
+
+            <!-- Navigasi di Kanan -->
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="hover:text-gray-400">Home</a></li>
+                    <li><a href="#" class="hover:text-gray-400">About</a></li>
+                    <li><a href="#" class="hover:text-gray-400">Services</a></li>
+                    <li><a href="#" class="hover:text-gray-400">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Copyright di Bawah -->
+        <div class="text-center text-gray-400 mt-4 text-sm">
+            © 2025 TelusurKultur. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        let scene = document.getElementById('scene');
+        let parallaxInstance = new Parallax(scene);
+
+        $(document).ready(function () {
+            function startMarquee() {
+                let $marquee = $(".marquee-content");
+                let itemHeight = $(".marquee-item").outerHeight();
+
+                // Animation function
+                function animateMarquee() {
+                    $marquee.animate({ top: `-=${itemHeight}px` }, 3000, "linear", function () {
+                        $(this).append($(this).children().first()).css("top", "0px");
+                        animateMarquee();
+                    });
+                }
+
+                animateMarquee();
+            }
+
+            startMarquee();
+
+            $("#indonesiamap").hover(
+                function () {
+                    $(this).addClass("scale-[1.5] transition-transform duration-300");
+                },
+                function () {
+                    $(this).removeClass("scale-[1.5]");
+                }
+            );
+        });
+    </script>
+
     <script src="./js/Navbar.js"></script>
+    <script src="./js/index.js"></script>
+
 </body>
 
 </html>

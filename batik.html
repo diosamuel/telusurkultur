@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&family=Manrope:wght@200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/Parallax.js v3.1.0/parallax-master/src/parallax.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body class="bg-[url(./assets/vintage.png)] bg-cover bg-center bg-no-repeat">
+    <navbar></navbar>
+    <section class="w-full flex flex justify-center items-center">
+        <div class="container flex flex justify-center items-center">
+            <div class="flex flex-col gap-3 max-h-[500px] overflow-y-auto p-2 ml-5" id="pilihan-atasan">
+                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed">
+                    <h1 class="text-white font-manrope font-bold">Hapus Motif</h1>
+                </div>
+            </div>
+            <div class="flex flex-col gap-3 max-h-[500px] overflow-y-auto p-2 ml-5" id="pilihan-bawahan">
+                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed">
+                    <h1 class="text-white font-manrope font-bold">Hapus Motif</h1>
+                </div>
+            </div>
+            <div class="h-screen w-full flex flex-col justify-center items-center scale-[1]">
+                <!-- Karakter -->
+                <svg width="500" height="500" viewBox="0 0 500 500">
+                    <image href="./assets/char.png" width="500" height="500" />
+                </svg>
+                <!-- Atasan -->
+                <svg width="350" height="350" viewBox="0 0 350 350" class="absolute translate-y-[60px]"
+                    id="atasan-parent">
+                    <mask id="custom-mask">
+                        <image id="pakaian-atas" width="350" height="350" />
+                    </mask>
+                    <image id="motif-batik-atas" width="300" height="400" mask="url(#custom-mask)"
+                        preserveAspectRatio="xMidYMid slice" />
+                </svg>
+
+                <!-- Bawahan -->
+                <svg width="230" height="230" viewBox="0 0 230 230"
+                    class="absolute translate-y-[150px] translate-x-[-5px]">
+                    <mask id="bottom-mask">
+                        <image id="pakaian-bawah" width="230" height="230" />
+                    </mask>
+                    <image id="motif-batik-bawah" width="600" height="300" mask="url(#bottom-mask)"
+                        preserveAspectRatio="xMidYMid slice" />
+                </svg>
+            </div>
+            <div class="flex flex-col gap-3 max-h-[500px] overflow-y-auto p-2 ml-5" id="batikbaju">
+                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed">
+                    <h1 class="text-white font-manrope font-bold">Upload Motif</h1>
+                </div>
+                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed">
+                    <h1 class="text-white font-manrope font-bold">Hapus Motif</h1>
+                </div>
+            </div>
+            <div class="flex flex-col gap-3 max-h-[500px] overflow-y-auto p-2 ml-5" id="batikcelana">
+                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed">
+                    <h1 class="text-white font-manrope font-bold">Upload Motif</h1>
+                </div>
+                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed">
+                    <h1 class="text-white font-manrope font-bold">Hapus Motif</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // let scene = document.getElementById('scene');
+        // let parallaxInstance = new Parallax(scene);
+        function updateAtasanStyle(width, height, translateX, translateY) {
+            const atasan = document.getElementById("atasan-parent");
+
+            if (!atasan) {
+                console.error("Element #atasan-parent not found!");
+                return;
+            }
+
+            // Update width and height attributes
+            atasan.setAttribute("width", width);
+            atasan.setAttribute("height", height);
+            atasan.setAttribute("viewBox", `0 0 ${width} ${height}`);
+
+            // Remove existing translate-x-* and translate-y-* classes safely
+            atasan.setAttribute(
+                "class",
+                atasan.classList.value
+                    .split(" ")
+                    .filter(cls => !cls.startsWith("translate-x-[") && !cls.startsWith("translate-y-["))
+                    .join(" ")
+            );
+            // Add new translate-x-* and translate-y-* classes
+            atasan.classList.add(`translate-y-[${translateY}px]`);
+            atasan.classList.add(`translate-x-[${translateX}px]`);
+        }
+
+
+        function renderBatik(containerId, imageArray, folderPath, tipe) {
+            const container = document.getElementById(containerId);
+            imageArray.forEach(image => {
+                const div = document.createElement("div");
+                div.className = "p-2 bg-white rounded shadow-lg";
+                let motifId;
+                if (tipe == "bawah") {
+                    motifId = "#motif-batik-bawah"
+                } else {
+                    motifId = "#motif-batik-atas"
+                }
+                div.onclick = () => {
+                    let bawahan = document.querySelector(motifId)
+                    bawahan.setAttributeNS("http://www.w3.org/1999/xlink", "href", `${folderPath}/${image}`)
+                }
+
+                const img = document.createElement("img");
+                img.src = `${folderPath}/${image}`;
+                img.className = "w-32 h-24 object-cover";
+                img.alt = image.split(".")[0];
+
+                div.appendChild(img);
+                container.appendChild(div);
+            });
+        }
+
+        const fabricItems = ["batikparang.png", "peradabali.JPG", "sekarjagad.jpg", "batikmerahbiru.jpg"];
+        renderBatik("batikbaju", fabricItems, "./assets/batik", "atas");
+        renderBatik("batikcelana", fabricItems, "./assets/batik", "bawah");
+
+        function renderPakaian(containerId, imageArray, folderPath, tipe) {
+            const container = document.getElementById(containerId);
+            imageArray.forEach(image => {
+                const div = document.createElement("div");
+                div.className = "bg-[#F85937] p-5 w-fit rounded";
+                let motifId;
+                if (tipe == "bawah") {
+                    motifId = "#pakaian-bawah"
+                } else {
+                    motifId = "#pakaian-atas"
+                }
+                div.onclick = () => {
+
+                    let defaults = 234
+                    const pakaian = [{
+                        type: "longsleeve",
+                        size: 260,
+                        x: 0,
+                        y: 15
+                    }, {
+                        type: "pundak",
+                        size: 220,
+                        x: 0,
+                        y: 0
+                    }, {
+                        type: "dress",
+                        size: 350,
+                        x: 0,
+                        y: 60
+                    }, {
+                        type: "longdress",
+                        size: 350,
+                        x: 0,
+                        y: 60
+                    }]
+                    let clothing = document.querySelector(motifId)
+                    clothing.setAttributeNS("http://www.w3.org/1999/xlink", "href", `${folderPath}/${image}`)
+                    let atasanStyle = pakaian.find(x => x.type == image.split(".")[0])
+                    if (atasanStyle) {
+                        updateAtasanStyle(atasanStyle.size, atasanStyle.size, atasanStyle.x, atasanStyle.y);
+                        console.log(atasanStyle)
+                        clothing.setAttribute("width", atasanStyle.size)
+                        clothing.setAttribute("height", atasanStyle.size)
+                    } else {
+                        if (tipe == "atas") {
+                            updateAtasanStyle(234, 234, 0, 0)
+                            clothing.setAttribute("width", 234)
+                            clothing.setAttribute("height", 234)
+                        }
+                    }
+                }
+
+                const img = document.createElement("img");
+                img.src = `${folderPath}/${image}`;
+                div.appendChild(img);
+                container.appendChild(div);
+            });
+        }
+
+        const atasanItems = ["dress.svg", "longdress.svg", "longsleeve.svg", "pundak.svg", "basicshirt.svg"];
+        const bawahanItems = ["rokpendek.svg", "celana.svg", "basicrok.svg"];
+        renderPakaian("pilihan-atasan", atasanItems, "./assets/pakaian", "atas")
+        renderPakaian("pilihan-bawahan", bawahanItems, "./assets/pakaian", "bawah")
+    </script>
+    <script src="./js/Navbar.js"></script>
+
+</body>
+
+</html>

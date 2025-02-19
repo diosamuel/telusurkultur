@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&family=Manrope:wght@200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/Parallax.js v3.1.0/parallax-master/src/parallax.min.js"></script>
+</head>
+
+<body class="bg-[#1E1E1E]">
+    <navbar></navbar>
+    <div class="relative overflow-hidden h-screen w-full" id="scene">
+        <!-- Background -->
+        <img src="./assets/vintage.png" class="absolute inset-0 w-full h-full object-cover" />
+
+        <div class="my-24 absolute top-0 z-[99]">
+            <h1 class="font-averia text-white text-4xl text-center">Chapter 1. Semur Golek</h1>
+        </div>
+
+        <div data-depth="0.1" class="!absolute !left-[calc(50%-5em)] !top-[70%]">
+            <img src="./assets/gunungan.png" class="w-[10em]" />
+        </div>
+
+        <!-- Waves -->
+        <img src="./assets/wave.png" data-depth="-0.4" class="!absolute !top-[calc(100%-5em)] w-full" />
+
+        <!-- Wayang (Left) -->
+        <div data-depth="-0.4" class="!absolute !left-0 !top-[50%]">
+            <img src="./assets/wayang.png" class="w-[20em]" />
+        </div>
+        <!-- Semar (Right) -->
+        <div data-depth="0.2" class="!absolute !left-[calc(100%-20em)] !top-[50%]">
+            <img src="./assets/semar.png" class="w-[20em] scale-x-[-1]" />
+        </div>
+        <img src="./assets/wave.png" data-depth="0.7" class="!absolute !top-[calc(100%-5em)] w-full" />
+    </div>
+
+    <div class="bg-white m-5 p-5 rounded-lg shadow-lg">
+        <h1 class="font-averia">Semar Golek</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ratione eius repellat, recusandae veniam quibusdam eveniet, ipsum praesentium harum, eaque non dignissimos aliquam? Et minima quos dolorum recusandae voluptates a.</p>
+    </div>
+
+    <script>
+        let scene = document.getElementById('scene');
+        let parallaxInstance = new Parallax(scene);
+    </script>
+    <script src="./js/Navbar.js"></script>
+
+</body>
+
+</html>
