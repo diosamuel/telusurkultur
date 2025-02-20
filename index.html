@@ -5,24 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&family=Manrope:wght@200..800&display=swap"
-        rel="stylesheet">
     <title>TelusurKultur</title>
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="icon" type="image/png" href="./assets/icon.svg">
+    <link rel="stylesheet" href="./js/fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.min.css">
     <script src="./js/Parallax.js v3.1.0/parallax-master/src/parallax.min.js"></script>
     <script src="./js/jquery-3.7.1/jquery-3.7.1.min.js"></script>
 </head>
 
-<body class="bg-[#1E1E1E]  overflow-x-hidden">
-    <navbar></navbar>
-    <!-- <div class="flex items-center justify-center w-full h-screen md:h-fit cursor-telusur">
-        <img src="../assets/Header.png" alt="Header Image" class="w-full h-full md:h-fit object-cover object-center" />
-        <img src="../assets/masklogo.png" class="absolute animate-pulse" />
-    </div> -->
-
+<body class="bg-[#1E1E1E] overflow-x-hidden">
+    <header class="z-[1000] overflow-visible">
+        <nav
+            class="flex justify-between items-center text-white p-5 fixed w-full bg-gradient-to-b from-[#1E1E1E] to-transparent overflow-visible">
+            <button class="hamburger-icon z-[99] pointer-events-auto">
+                <i class="fas fa-bars text-3xl"></i>
+            </button>
+            <img src="../assets/logo.png" alt="Website Logo" class="w-32" />
+            <p></p>
+        </nav>
+    </header>
+    <div class="fixed bg-gradient-to-r from-[#1E1E1E] to-transparent p-5 h-full font-manrope w-4/12 hidden z-[99]"
+        id="nav-links">
+        <button class="hamburger-icon z-[99] pointer-events-auto text-white">
+            <i class="fas fa-bars text-3xl"></i>
+        </button>
+        <ul class="space-y-4 mt-8">
+            <li><a href="/" class="text-white text-2xl">Home</a></li>
+            <li><a href="/wayang.html" class="text-white text-2xl">Wayang</a></li>
+            <li><a href="/sejarah.html" class="text-white text-2xl">Sejarah</a></li>
+            <li><a href="/batik.html" class="text-white text-2xl">Batik</a></li>
+        </ul>
+    </div>
     <div class="h-screen w-full flex flex-col items-center justify-center relative">
         <!-- Background Image -->
         <img src="../assets/Header.png" alt="Header Image"
@@ -44,7 +57,7 @@
                         class="w-[30em] md:w-[50em] absolute !top-[10em] !left-[calc(100%-50em)]" data-depth="0.2" />
                     <img src="../assets/wayangflip.png" class="w-[20em] absolute !top-[20em] !left-[calc(100%-20em)]"
                         data-depth="-0.4" />
-                        <img src="/assets/gunungan.png" class="w-[25em] absolute !top-[20em] !left-[calc(100%-30em)] z-[99]"
+                    <img src="/assets/gunungan.png" class="w-[25em] absolute !top-[20em] !left-[calc(100%-30em)] z-[99]"
                         data-depth="-1" />
 
                     <!-- Left Side -->
@@ -80,8 +93,22 @@
                         <p>+ 500 SM</p>
                     </div>
                 </div>
-                <div class="flex flex-col marquee-item translate-x-[1em] gap-5">
+                <div class="flex flex-col marquee-item translate-x-[50%] gap-5">
+                    <img class="w-64 h-64 object-cover rounded-lg border border-dashed" src="./assets/sejarah.jpg" />
+                    <div class="space-y-1">
+                        <p class="font-averia text-2xl text-white">Runtuhnya Kerajaan Majapahit</p>
+                        <p>+ 500 SM</p>
+                    </div>
+                </div>
+                <div class="flex flex-col marquee-item translate-x-[10em] gap-5">
                     <img class="w-64 h-64 object-cover rounded-lg border border-dashed" src="./assets/bg-wayang.jpg" />
+                    <div class="space-y-1">
+                        <p class="font-averia text-2xl text-white">Indonesia Merdeka</p>
+                        <p>1945</p>
+                    </div>
+                </div>
+                <div class="flex flex-col marquee-item translate-x-[50%] gap-5">
+                    <img class="w-64 h-64 object-cover rounded-lg border border-dashed" src="./assets/bg-jelajah.png" />
                     <div class="space-y-1">
                         <p class="font-averia text-2xl text-white">Runtuhnya Kerajaan Majapahit</p>
                         <p>+ 500 SM</p>
@@ -94,14 +121,7 @@
                         <p>+ 500 SM</p>
                     </div>
                 </div>
-                <div class="flex flex-col marquee-item translate-x-[1em] gap-5">
-                    <img class="w-64 h-64 object-cover rounded-lg border border-dashed" src="./assets/bg-wayang.jpg" />
-                    <div class="space-y-1">
-                        <p class="font-averia text-2xl text-white">Runtuhnya Kerajaan Majapahit</p>
-                        <p>+ 500 SM</p>
-                    </div>
-                </div>
-                <div class="flex flex-col marquee-item translate-x-[10em] gap-5">
+                <div class="flex flex-col marquee-item translate-x-[50%] gap-5">
                     <img class="w-64 h-64 object-cover rounded-lg border border-dashed" src="./assets/bg-wayang.jpg" />
                     <div class="space-y-1">
                         <p class="font-averia text-2xl text-white">Runtuhnya Kerajaan Majapahit</p>
@@ -119,7 +139,8 @@
             <p class="text-white font-manrope">Jejak sejarah, warisan tak ternilai, dan kisah yang tak boleh dilupakan.
                 Mari bersama menelusuri keindahan budaya, mengenali kembali tradisi yang membentuk jati diri bangsa, dan
                 merasakan keagungan warisan leluhur yang terus hidup dalam setiap langkah kita.</p>
-            <button class="bg-[#F85937] z-[99] px-5 py-3 text-[#1E1E1E] rounded-full w-fit">Lihat Semua</button>
+            <a class="bg-[#F85937] z-[99] px-5 py-3 text-[#1E1E1E] rounded-full w-fit font-manrope"
+                href="/sejarah.html">Lihat Semua</a>
         </div>
         <div class="absolute right-0 h-[316.66px] mt-[10em] opacity-[0.5] md:opacity-1" id="indonesiamap">
             <img src="../assets/indonesia 2.svg" />
@@ -162,6 +183,22 @@
             <div class="sticky top-24 z-20">
                 <div class="relative rounded-lg overflow-hidden h-[40em] md:h-[30em]">
                     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black">
+                        <img src="./assets/sejarah.jpg" class="w-full h-full object-cover brightness-50" />
+                    </div>
+                    <div class="absolute inset-0 flex flex-col justify-between p-4">
+                        <div class="text-center flex flex-col items-center justify-center h-full">
+                            <h2 class="text-white text-5xl font-medium mb-2 font-averia">Timeline Sejarah Indonesia</h2>
+                            <a class="bg-[#FF5C35] hover:bg-[#FF704F] text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                                href="/sejarah.html"> Telusuri </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="sticky top-24 z-20">
+                <div class="relative rounded-lg overflow-hidden h-[40em] md:h-[30em]">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black">
                         <img src="./assets/batik/batikmerahbiru.jpg" class="w-full h-full object-cover brightness-50" />
                     </div>
                     <div class="absolute inset-0 flex flex-col justify-between p-4">
@@ -177,35 +214,45 @@
 
     </section>
 
-    <footer class="bg-[#F85937] text-white py-6 h-[300px] flex flex-col justify-between">
+    <footer class="bg-[#F85937] text-white py-6 flex flex-col justify-between">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
             <!-- Logo di Kiri -->
-            <div class="mb-4 md:mb-0">
+            <div class="my-12 md:mb-0">
                 <img src="./assets/logo.png" alt="Logo" class="w-32">
+                <p class="w-full md:w-[40%] font-manrope text-sm my-3">TelusurKultur mengajakmu menjelajahi kekayaan
+                    budaya Indonesia secara
+                    interaktif. Temukan kembali sejarah, tradisi, dan warisan leluhur yang hampir terlupakan—semua dalam
+                    satu pengalaman yang seru dan
+                    mendalam!</p>
             </div>
 
             <!-- Navigasi di Kanan -->
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="#" class="hover:text-gray-400">Home</a></li>
-                    <li><a href="#" class="hover:text-gray-400">About</a></li>
-                    <li><a href="#" class="hover:text-gray-400">Services</a></li>
-                    <li><a href="#" class="hover:text-gray-400">Contact</a></li>
+            <div class="md:my-0 w-full">
+                <ul class="flex flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-6 font-manrope text-sm">
+                    <li><a href="#" class="hover:text-gray-200">Home</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Belajar</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Sejarah</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Batik</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
 
         <!-- Copyright di Bawah -->
-        <div class="text-center text-white-400 mt-4 text-sm">
+        <div class="text-center text-white-400 mt-4 text-sm font-manrope">
             © 2025 TelusurKultur. All rights reserved.
         </div>
     </footer>
+
 
     <script>
         let scene = document.getElementById('scene');
         let parallaxInstance = new Parallax(scene);
 
         $(document).ready(function () {
+            $('.hamburger-icon').click(function () {
+                $('#nav-links').toggleClass('hidden');
+            });
+
             function startMarquee() {
                 let $marquee = $(".marquee-content");
                 let itemHeight = $(".marquee-item").outerHeight();

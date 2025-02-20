@@ -13,9 +13,163 @@
     <link rel="icon" type="image/png" href="./assets/icon.svg">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/Parallax.js v3.1.0/parallax-master/src/parallax.min.js"></script>
+    <link rel="stylesheet" href="./js/fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.min.css">
+    <script src="./js/Flickity v2.2/Flickity/flickity.pkgd.min.js"></script>
+    <link rel="stylesheet" href="./js/Flickity v2.2/Flickity/flickity.css" media="screen">
+    <style>
+    </style>
 </head>
 
-<body>
-    
+<body class="bg-[#1E1E1E]">
+    <header class="z-[1000] overflow-visible">
+        <nav
+            class="flex justify-between items-center text-white p-5 fixed w-full bg-gradient-to-b from-[#1E1E1E] to-transparent overflow-visible">
+            <button class="hamburger-icon z-[99] pointer-events-auto">
+                <i class="fas fa-bars text-3xl"></i>
+            </button>
+            <img src="../assets/logo.png" alt="Website Logo" class="w-32" />
+            <p></p>
+        </nav>
+    </header>
+    <div class="fixed bg-gradient-to-r from-[#1E1E1E] to-transparent p-5 h-full font-manrope w-4/12 hidden z-[99]"
+        id="nav-links">
+        <button class="hamburger-icon z-[99] pointer-events-auto text-white">
+            <i class="fas fa-bars text-3xl"></i>
+        </button>
+        <ul class="space-y-4 mt-8">
+            <li><a href="/" class="text-white text-2xl">Home</a></li>
+            <li><a href="/wayang.html" class="text-white text-2xl">Wayang</a></li>
+            <li><a href="/sejarah.html" class="text-white text-2xl">Sejarah</a></li>
+            <li><a href="/batik.html" class="text-white text-2xl">Batik</a></li>
+        </ul>
+    </div>
+    <div class="relative w-full flex items-center justify-center h-screen overflow-hidden z-[-99]">
+        <img src="./assets/peta/indonesia.svg" class="object-cover" id="zoomable-image" alt="Indonesia Map" />
+    </div>
+    <div class="carousel m-5"
+        data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false }'>
+        <div class="w-48 flex flex-col gap-3 mx-5">
+            <img class="w-full h-48 object-cover rounded-lg border border-dashed" src="./assets/bg-wayang.jpg" />
+            <div class="space-y-1">
+                <p class="text-white">Sumatera Utara</p>
+                <p class="font-averia text-2xl text-white">Kerajaan Sriwijaya</p>
+                <p class="text-white text-lg">670-1377 M</p>
+            </div>
+        </div>
+
+        <div class="w-48 flex flex-col gap-3 mx-5">
+            <img class="w-full h-48 object-cover rounded-lg border border-dashed" src="./assets/bg-wayang.jpg" />
+            <div class="space-y-1">
+                <p class="text-white">Bali</p>
+                <p class="font-averia text-2xl text-white">Kerajaan Majapahit</p>
+                <p class="text-white text-lg">1293-1500 M</p>
+            </div>
+        </div>
+
+        <div class="w-48 flex flex-col gap-3 mx-5">
+            <img class="w-full h-48 object-cover rounded-lg border border-dashed" src="./assets/bg-wayang.jpg" />
+            <div class="space-y-1">
+                <p class="text-white">Jawa Timur</p>
+                <p class="font-averia text-2xl text-white">Kerajaan Singasari</p>
+                <p class="text-white text-lg">1222-1292 M</p>
+            </div>
+        </div>
+
+        <div class="w-48 flex flex-col gap-3 mx-5">
+            <img class="w-full h-48 object-cover rounded-lg border border-dashed" src="./assets/bg-wayang.jpg" />
+            <div class="space-y-1">
+                <p class="text-white">Sulawesi Selatan</p>
+                <p class="font-averia text-2xl text-white">Kerajaan Gowa</p>
+                <p class="text-white text-lg">1300-1669 M</p>
+            </div>
+        </div>
+
+        <div class="w-48 flex flex-col gap-3 mx-5">
+            <img class="w-full h-48 object-cover rounded-lg border border-dashed" src="./assets/bg-wayang.jpg" />
+            <div class="space-y-1">
+                <p class="text-white">Aceh</p>
+                <p class="font-averia text-2xl text-white">Kesultanan Aceh</p>
+                <p class="text-white text-lg">1496-1903 M</p>
+            </div>
+        </div>
+
+        <div class="w-48 flex flex-col gap-3 mx-5">
+            <img class="w-full h-48 object-cover rounded-lg border border-dashed" src="./assets/bg-wayang.jpg" />
+            <div class="space-y-1">
+                <p class="text-white">Jakarta</p>
+                <p class="font-averia text-2xl text-white">VOC dan Kedatangan Belanda</p>
+                <p class="text-white text-lg">1602-1799 M</p>
+            </div>
+        </div>
+
+        <div class="w-48 flex flex-col gap-3 mx-5">
+            <img class="w-full h-48 object-cover rounded-lg border border-dashed" src="./assets/bg-wayang.jpg" />
+            <div class="space-y-1">
+                <p class="text-white">Surabaya</p>
+                <p class="font-averia text-2xl text-white">Pertempuran Surabaya</p>
+                <p class="text-white text-lg">10 November 1945</p>
+            </div>
+        </div>
+
+        <div class="w-48 flex flex-col gap-3 mx-5">
+            <img class="w-full h-48 object-cover rounded-lg border border-dashed" src="./assets/bg-wayang.jpg" />
+            <div class="space-y-1">
+                <p class="text-white">Yogyakarta</p>
+                <p class="font-averia text-2xl text-white">Serangan Umum 1 Maret 1949</p>
+                <p class="text-white text-lg">1 Maret 1949</p>
+            </div>
+        </div>
+
+        <div class="w-48 flex flex-col gap-3 mx-5">
+            <img class="w-full h-48 object-cover rounded-lg border border-dashed" src="./assets/bg-wayang.jpg" />
+            <div class="space-y-1">
+                <p class="text-white">Jakarta</p>
+                <p class="font-averia text-2xl text-white">Proklamasi Kemerdekaan Indonesia</p>
+                <p class="text-white text-lg">17 Agustus 1945</p>
+            </div>
+        </div>
+
+        <div class="w-48 flex flex-col gap-3 mx-5"">
+            <img class=" w-full h-48 object-cover rounded-lg border border-dashed" src="./assets/bg-wayang.jpg" />
+        <div class="space-y-1">
+            <p class="text-white">Bali</p>
+            <p class="font-averia text-2xl text-white">Puputan Margarana</p>
+            <p class="text-white text-lg">20 November 1946</p>
+        </div>
+    </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.hamburger-icon').click(function () {
+                $('#nav-links').toggleClass('hidden');
+            });
+
+            const $image = $('#zoomable-image');
+            const zoomIntensity = 0.2;
+
+            $(window).on('mousemove', function (e) {
+                const imageOffset = $image.offset();
+                const mouseX = e.pageX - imageOffset.left;
+                const mouseY = e.pageY - imageOffset.top;
+                const originX = (mouseX / $image.width()) * 100;
+                const originY = (mouseY / $image.height()) * 100;
+                $image.css({
+                    'transform-origin': `${originX}% ${originY}%`,
+                    'transform': `scale(${1 + zoomIntensity})`,
+                });
+            });
+
+            $(window).on('mouseleave', function () {
+                $image.css({
+                    'transform-origin': 'center center',
+                    'transform': 'scale(1)',
+                });
+            });
+        });
+    </script>
+    <script src="./js/Navbar.js"></script>
 </body>
+
 </html>

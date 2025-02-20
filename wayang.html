@@ -18,7 +18,28 @@
 </head>
 
 <body class="bg-[#1E1E1E]">
-    <navbar></navbar>
+    <header class="z-[80] overflow-visible">
+        <nav
+            class="flex justify-between items-center text-white p-5 fixed w-full bg-gradient-to-b from-[#1E1E1E] to-transparent overflow-visible">
+            <button class="hamburger-icon z-[99] pointer-events-auto">
+                <i class="fas fa-bars text-3xl"></i>
+            </button>
+            <img src="../assets/logo.png" alt="Website Logo" class="w-32" />
+            <p></p>
+        </nav>
+    </header>
+    <div class="fixed bg-gradient-to-r from-[#1E1E1E] to-transparent p-5 h-full font-manrope w-4/12 hidden z-[99]"
+        id="nav-links">
+        <button class="hamburger-icon z-[99] pointer-events-auto text-white">
+            <i class="fas fa-bars text-3xl"></i>
+        </button>
+        <ul class="space-y-4 mt-8">
+            <li><a href="/" class="text-white text-2xl">Home</a></li>
+            <li><a href="/wayang.html" class="text-white text-2xl">Wayang</a></li>
+            <li><a href="/sejarah.html" class="text-white text-2xl">Sejarah</a></li>
+            <li><a href="/batik.html" class="text-white text-2xl">Batik</a></li>
+        </ul>
+    </div>
     <div class="relative overflow-hidden h-screen w-full z-[-99]" id="scene">
         <!-- Background -->
         <img src="./assets/vintage.png" class="absolute inset-0 w-full h-full object-cover" />
@@ -35,12 +56,16 @@
         <img src="./assets/wave.png" data-depth="-0.4" class="!absolute !top-[calc(100%-5em)] w-full" />
 
         <!-- Wayang (Left) -->
-        <div data-depth="-0.2" class="font-manrope opacity-[0.7]  p-3 bg-white rounded w-fit !top-[40%] !left-[5em]"><p id="namawayangleft"></p></div>
+        <div data-depth="-0.2" class="font-manrope opacity-[0.7]  p-3 bg-white rounded w-fit !top-[40%] !left-[5em]">
+            <p id="namawayangleft"></p>
+        </div>
         <div data-depth="-0.4" class="!absolute !left-0 !top-[40%]">
             <img src="./assets/wayang.png" class="w-[20em] scale-x-[-1]" id="wayangleft" />
         </div>
         <!-- Wayang (Right) -->
-        <p data-depth="-0.5" class="font-manrope opacity-[0.7] p-3 bg-white rounded w-fit !top-[40%] !left-[calc(100%-10em)]" id="namawayangright"></p>
+        <p data-depth="-0.5"
+            class="font-manrope opacity-[0.7] p-3 bg-white rounded w-fit !top-[40%] !left-[calc(100%-10em)]"
+            id="namawayangright"></p>
         <div data-depth="0.2" class="!absolute !left-[calc(100%-20em)] !top-[40%]">
             <img src="./assets/semar.png" class="w-[20em]" id="wayangright" />
         </div>
@@ -107,6 +132,10 @@
         }];
 
         $(document).ready(function () {
+            $('.hamburger-icon').click(function () {
+                $('#nav-links').toggleClass('hidden');
+            });
+
             let posisi = 0;
 
             function updateTitle() {

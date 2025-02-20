@@ -17,9 +17,27 @@
     background:#fafafa; /* Hover effect */
 }
 
+
+@font-face {
+    font-family: 'Averia Gruesa Libre';
+    src: url('../assets/font/Averia_Gruesa_Libre/AveriaGruesaLibre-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('../assets/font/Manrope/static/Manrope-Regular.ttf') format('truetype'),
+        url('../assets/font/Manrope/static/Manrope-ExtraBold.ttf') format('truetype'),
+        url('../assets/font/Manrope/static/Manrope-ExtraLight.ttf') format('truetype'),
+        url('../assets/font/Manrope/static/Manrope-Light.ttf') format('truetype'),
+        url('../assets/font/Manrope/static/Manrope-Medium.ttf') format('truetype'),
+        url('../assets/font/Manrope/static/Manrope-Bold.ttf') format('truetype'),
+        url('../assets/font/Manrope/static/Manrope-SemiBold.ttf') format('truetype');
+}
 .font-manrope {
-    font-family: "Manrope", serif;
+    font-family: "Manrope", sans-serif;
     font-optical-sizing: auto;
+    font-weight: 400; /* Gunakan 400 untuk normal */
+    font-style: normal;
 }
 
 .font-averia {

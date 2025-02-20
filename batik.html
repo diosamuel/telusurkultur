@@ -11,22 +11,48 @@
         rel="stylesheet">
     <title>TelusurKultur - Batik Mix&Match</title>
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./js/fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.min.css">
+
     <link rel="icon" type="image/png" href="./assets/icon.svg">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/Parallax.js v3.1.0/parallax-master/src/parallax.min.js"></script>
+
 </head>
 
 <body class="bg-[url(./assets/vintage.png)] bg-cover bg-center bg-no-repeat">
-    <navbar></navbar>
+    <header class="z-[80] overflow-visible">
+        <nav
+            class="flex justify-between items-center text-white p-5 fixed w-full bg-gradient-to-b from-[#1E1E1E] to-transparent overflow-visible">
+            <button class="hamburger-icon z-[99] pointer-events-auto">
+                <i class="fas fa-bars text-3xl"></i>
+            </button>
+            <img src="../assets/logo.png" alt="Website Logo" class="w-32" />
+            <p></p>
+        </nav>
+    </header>
+    <div class="fixed bg-gradient-to-r from-[#1E1E1E] to-transparent p-5 h-full font-manrope w-4/12 hidden z-[99]"
+        id="nav-links">
+        <button class="hamburger-icon z-[99] pointer-events-auto text-white">
+            <i class="fas fa-bars text-3xl"></i>
+        </button>
+        <ul class="space-y-4 mt-8">
+            <li><a href="/" class="text-white text-2xl">Home</a></li>
+            <li><a href="/wayang.html" class="text-white text-2xl">Wayang</a></li>
+            <li><a href="/sejarah.html" class="text-white text-2xl">Sejarah</a></li>
+            <li><a href="/batik.html" class="text-white text-2xl">Batik</a></li>
+        </ul>
+    </div>
     <section class="w-full flex justify-center items-center">
         <div class="container flex flex-col md:flex-row justify-center items-center">
-            <div class="flex flex-row md:flex-col gap-3 md:max-h-[500px] max-h-[200px] overflow-y-auto p-2 ml-5 md:order-1 order-3" id="pilihan-atasan">
+            <div class="flex flex-row md:flex-col gap-3 md:max-h-[500px] max-h-[200px] overflow-y-auto p-2 ml-5 md:order-1 order-3"
+                id="pilihan-atasan">
                 <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed cursor-pointer"
                     onclick="hapusBaju()">
                     <h1 class="text-white font-manrope font-bold text-sm w-full">Hapus Baju</h1>
                 </div>
             </div>
-            <div class="flex flex-row md:flex-col gap-3 max-h-[500px] overflow-y-auto p-2 ml-5 order-2" id="pilihan-bawahan">
+            <div class="flex flex-row md:flex-col gap-3 max-h-[500px] overflow-y-auto p-2 ml-5 order-2"
+                id="pilihan-bawahan">
                 <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed cursor-pointer"
                     onclick="hapusCelana()">
                     <h1 class="text-white font-manrope font-bold text-sm w-full">Hapus Celana</h1>
@@ -59,7 +85,8 @@
             </div>
             <div class="order-4 mx-5">
                 <h1 class="ml-4 text-white font-bold">Atasan</h1>
-                <div class="flex flex-row md:flex-col gap-3 md:max-h-[500px] max-h-[200px] overflow-y-auto p-2 ml-5" id="batikbaju">
+                <div class="flex flex-row md:flex-col gap-3 md:max-h-[500px] max-h-[200px] overflow-y-auto p-2 ml-5"
+                    id="batikbaju">
                     <!-- <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed cursor-pointer"
                         onclick="uploadMotif('baju')">
                         <h1 class="text-white font-manrope font-bold">Upload Motif</h1>
@@ -72,7 +99,8 @@
             </div>
             <div class="order-5 mx-5">
                 <h1 class="ml-4 text-white font-bold">Bawahan</h1>
-                <div class="flex flex-row md:flex-col gap-3 md:max-h-[500px] max-h-[200px] overflow-y-auto overflow-x-scroll p-2 ml-5" id="batikcelana">
+                <div class="flex flex-row md:flex-col gap-3 md:max-h-[500px] max-h-[200px] overflow-y-auto overflow-x-scroll p-2 ml-5"
+                    id="batikcelana">
                     <!-- <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed cursor-pointer">
                         <h1 class="text-white font-manrope font-bold">Upload Motif</h1>
                     </div> -->
@@ -86,6 +114,12 @@
     </section>
 
     <script>
+        $(document).ready(function () {
+            $('.hamburger-icon').click(function () {
+                $('#nav-links').toggleClass('hidden');
+            });
+
+        })
         function hapusBaju() {
             let motifId = "#motif-batik-atas"
             let bawahan = document.querySelector(motifId)
