@@ -13,126 +13,120 @@
     <link rel="stylesheet" href="./css/index.css" />
     <script src="./js/Parallax.js v3.1.0/parallax-master/src/parallax.min.js"></script>
     <script src="./js/jquery-3.7.1/jquery-3.7.1.min.js"></script>
-
-    <style>
-        /* Marquee Container
-        .marquee-container {
-            width: 300px;
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-            border: 2px solid #333;
-            background: #f8f8f8;
-        }
-
-        .marquee-content {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            width: 100%;
-        }
-
-        .marquee-item {
-            padding: 10px;
-            background: #4CAF50;
-            color: white;
-            text-align: center;
-            margin-bottom: 5px;
-            font-size: 16px;
-        } */
-    </style>
 </head>
 
 <body class="bg-[#1E1E1E]  overflow-x-hidden">
     <navbar></navbar>
-    <div class="flex items-center justify-center w-full h-screen md:h-fit">
+    <!-- <div class="flex items-center justify-center w-full h-screen md:h-fit cursor-telusur">
         <img src="../assets/Header.png" alt="Header Image" class="w-full h-full md:h-fit object-cover object-center" />
         <img src="../assets/masklogo.png" class="absolute animate-pulse" />
-    </div>
+    </div> -->
 
-    <div class="h-screen flex flex-col items-center w-full justify-center">
-        <img src="../assets/icon.svg" class="w-[40px]" />
-        <h1 class="font-averia tracking-tighter text-white text-6xl md:text-4xl text-center">Jati Diri Nusantara</h1>
-        <p class="font-manrope md:w-[50%] w-full mx-3 text-center text-white text-lg opacity-[0.8] my-5">Lorem ipsum
-            dolor sit amet
-            consectetur adipisicing elit. Ex, perspiciatis repellendus ad ipsum temporibus, harum tenetur officia
-            aperiam magni ratione nam alias eos tempore quod possimus. In sint quaerat quo!</p>
-        <button class="bg-[#F85937] z-[99] px-5 py-3 text-[#1E1E1E] rounded-full">Lihat Semua</button>
-        <div class="flex items-center justify-center">
+    <div class="h-screen w-full flex flex-col items-center justify-center relative">
+        <!-- Background Image -->
+        <img src="../assets/Header.png" alt="Header Image"
+            class="absolute top-0 left-0 w-full h-full object-cover z-[-99]" />
+
+        <!-- Content -->
+        <img src="../assets/icon.svg" class="w-[40px] my-3" />
+        <h1 class="font-averia tracking-tighter text-white text-6xl md:text-7xl text-center">TelusurKultur</h1>
+        <p class="font-manrope md:w-[50%] mx-4 text-center text-white text-sm md:text-lg opacity-[0.8] my-5">
+            TelusurKultur mengajakmu menjelajahi kekayaan budaya Indonesia secara interaktif. Temukan kembali sejarah,
+            tradisi, dan warisan leluhur yang hampir terlupakan—semua dalam satu pengalaman yang seru dan mendalam!
+        </p>
+
+        <div class="flex items-center justify-center w-full">
             <div class="w-full absolute overflow-hidden">
                 <div id="scene" class="w-full z-[-99] h-screen">
-                    <!-- right -->
-                    <img src="../assets/prambanan.png" class="w-[50em] absolute !top-[10em] !left-[55em]"
+                    <!-- Right Side -->
+                    <img src="../assets/prambanan.png" class="w-[50em] absolute !top-[10em] !left-[calc(100%-50em)]"
                         data-depth="0.2" />
-                    <img src="../assets/wayangabu.png" class="w-[20em] absolute !top-[20em] !left-[55em]"
-                        data-depth="0.4" />
-                    <!-- left -->
-                    <img src="../assets/wayangabuflip.png" class="w-[20em] absolute !top-[20em] z-[99]"
-                        data-depth="1" />
-                    <img src="../assets/barong.png" class="w-[50em] absolute !top-[15em] !left-[-20em]"
-                        data-depth="0.5" />
+                    <img src="../assets/wayangabu.png" class="w-[20em] absolute !top-[20em] !left-[calc(100%-20em)]"
+                        data-depth="-0.4" />
+
+                    <!-- Left Side -->
+                    <img src="../assets/wayangabuflip.png"
+                        class="w-[20em] absolute !top-[20em] !left-[calc(0%+2em)] z-[99]" data-depth="1" />
+                    <img src="/assets/semar.png" class="w-[25em] absolute !top-[20em] !left-[calc(0%+2em)] z-[99]"
+                        data-depth="-0.3" />
+                    <img src="../assets/prambanan.png" class="w-[50em] absolute !top-[10em] !left-[calc(0%-10em)]"
+                        data-depth="0.2" />
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="h-screen flex flex-col items-center w-full bg-[#F85937] rounded-t-[5em]">
-        <div class="w-full h-full overflow-hidden relative marquee-container">
+
+    <div class="h-screen flex flex-col items-center w-full bg-[#F85937]">
+        <img src="./assets/pattern.svg" class="absolute opacity-[0.1] w-full h-full object-cover" />
+
+        <!-- Gradient Overlay -->
+        <!-- <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50"></div> -->
+        <div class="absolute flex flex-col justify-center items-center h-screen z-[99]">
+            <img src="./assets/wayangputih.png" class="w-24" />
+            <h1 class="font-averia tracking-tighter text-white text-3xl md:text-4xl my-5">Asa Cinta Narasi Budaya</h1>
+            <p class="font-manrope md:w-[50%] mx-4 text-center text-white text-lg opacity-[0.8]">Menjaga warisan,
+                merajut kisah. Jelajahi jejak sejarah dan kekayaan budaya yang menghidupkan jati diri bangsa</p>
+        </div>
+        <div class="w-full h-full overflow-hidden relative marquee-container container">
             <div class="absolute w-full flex flex-col marquee-content">
-                <div class="flex flex-col marquee-item m-[5em] gap-5">
-                    <div class="p-2 w-64 h-64 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                <div class="flex flex-col marquee-item m-[5em] gap-3">
+                    <img
+                        class="w-64 h-64 object-cover rounded-lg border border-dashed" src="./assets/gunungan.png"/>
                     <div class="space-y-1">
-                        <p class="font-averia text-2xl">Perang Salib</p>
+                        <p class="font-averia text-2xl text-white">Runtuhnya Kerajaan Majapahit</p>
                         <p>+ 500 SM</p>
                     </div>
                 </div>
                 <div class="flex flex-col marquee-item m-[15em] gap-5">
-                    <div class="p-2 w-32 h-32 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                    <img
+                        class="w-64 h-64 object-cover rounded-lg border border-dashed" src="./assets/gunungan.png"/>
                     <div class="space-y-1">
-                        <p class="font-averia text-lg">Perang Salib</p>
+                        <p class="font-averia text-2xl text-white">Runtuhnya Kerajaan Majapahit</p>
                         <p>+ 500 SM</p>
                     </div>
                 </div>
                 <div class="flex flex-col marquee-item ml-[50em] gap-5">
-                    <div class="p-2 w-64 h-64 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                    <img
+                        class="w-64 h-64 object-cover rounded-lg border border-dashed" src="./assets/gunungan.png"/>
                     <div class="space-y-1">
-                        <p class="font-averia text-2xl">Perang Salib</p>
+                        <p class="font-averia text-2xl text-white">Runtuhnya Kerajaan Majapahit</p>
                         <p>+ 500 SM</p>
                     </div>
                 </div>
                 <div class="flex flex-col marquee-item ml-[70em] gap-5">
-                    <div class="p-2 w-48 h-48 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                    <img
+                        class="w-64 h-64 object-cover rounded-lg border border-dashed" src="./assets/gunungan.png"/>
                     <div class="space-y-1">
-                        <p class="font-averia text-2xl">Perang Salib</p>
+                        <p class="font-averia text-2xl text-white">Runtuhnya Kerajaan Majapahit</p>
                         <p>+ 500 SM</p>
                     </div>
                 </div>
                 <div class="flex flex-col marquee-item ml-[40em] gap-5">
-                    <div class="p-2 w-32 h-32 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                    <img
+                        class="w-64 h-64 object-cover rounded-lg border border-dashed" src="./assets/gunungan.png"/>
                     <div class="space-y-1">
-                        <p class="font-averia text-2xl">Perang Salib</p>
+                        <p class="font-averia text-2xl text-white">Runtuhnya Kerajaan Majapahit</p>
                         <p>+ 500 SM</p>
                     </div>
                 </div>
                 <div class="flex flex-col marquee-item ml-[90em] gap-5">
-                    <div class="p-2 w-48 h-48 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                    <img
+                        class="w-64 h-64 object-cover rounded-lg border border-dashed" src="./assets/gunungan.png"/>
                     <div class="space-y-1">
-                        <p class="font-averia text-lg">Perang Salib</p>
+                        <p class="font-averia text-2xl text-white">Runtuhnya Kerajaan Majapahit</p>
                         <p>+ 500 SM</p>
                     </div>
                 </div>
                 <div class="flex flex-col marquee-item ml-[20em] gap-5">
-                    <div class="p-2 w-48 h-48 bg-white/20 text-white text-center text-lg rounded-lg border border-dashed"></div>
+                    <img
+                        class="w-64 h-64 object-cover rounded-lg border border-dashed" src="./assets/gunungan.png"/>
                     <div class="space-y-1">
-                        <p class="font-averia text-lg">Perang Salib</p>
+                        <p class="font-averia text-2xl text-white">Runtuhnya Kerajaan Majapahit</p>
                         <p>+ 500 SM</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="absolute flex flex-col items-center">
-            <h1 class="font-averia tracking-tighter text-white text-4xl mt-10">Asa Cinta Narasi Budaya</h1>
-            <p class="font-manrope w-[50%] text-center text-white text-lg opacity-[0.8] my-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, perspiciatis repellendus ad ipsum temporibus, harum tenetur officia aperiam magni ratione nam alias eos tempore quod possimus. In sint quaerat quo!</p>
         </div>
     </div>
 
@@ -140,13 +134,12 @@
         <div
             class="flex flex-col h-full text-left md:w-5/12 w-full h-full justify-center gap-5 md:ml-[3em] mx-3 z-[99]">
             <h1 class="font-averia tracking-tighter text-white text-4xl">Menapak Tilas Kekayaan Budaya</h1>
-            <p class="text-white font-manrope">Siap menjelajah kekayaan budaya Indonesia dengan cara yang seru dan gak
-                ngebosenin? TelusurKultur hadir
-                buat kamu yang penasaran sama sejarah, seni, dan tradisi Nusantara, tapi dengan cara yang lebih asik dan
-                interaktif!</p>
+            <p class="text-white font-manrope">Jejak sejarah, warisan tak ternilai, dan kisah yang tak boleh dilupakan.
+                Mari bersama menelusuri keindahan budaya, mengenali kembali tradisi yang membentuk jati diri bangsa, dan
+                merasakan keagungan warisan leluhur yang terus hidup dalam setiap langkah kita.</p>
             <button class="bg-[#F85937] z-[99] px-5 py-3 text-[#1E1E1E] rounded-full w-fit">Lihat Semua</button>
         </div>
-        <div class="absolute right-0 h-[316.66px] mt-[10em] opacity-[0.3]" id="indonesiamap">
+        <div class="absolute right-0 h-[316.66px] mt-[10em] opacity-[0.5] md:opacity-1" id="indonesiamap">
             <img src="../assets/indonesia 2.svg" />
             <img src="../assets/indonesia 3.svg" class="img-parallax absolute md:top-[5em]" />
             <img src="../assets/indonesia 4.svg" class="img-parallax absolute md:top-[-10em]" />
@@ -157,38 +150,56 @@
         </div>
     </div>
 
-    <div class="flex flex-col w-full items-center gap-3">
-        <img src="./assets/logogame.png" class="w-52 my-12" />
-        <p class="font-manrope text-white w-8/12 text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Optio repellat numquam magni autem error quam nulla officiis assumenda unde ullam eveniet labore eum, ea non
-            harum modi et adipisci voluptatibus!
-        </p>
+    <section class="mb-12">
+        <div class="flex flex-col items-center justify-center mb-8">
+            <img src="./assets/logogame.svg" alt="Telusur Game" class="w-12 mx-auto" />
+             <h1 class="font-averia tracking-tighter text-white text-4xl">Jelajahi Dunia interaktif</h1>
+             <p class="font-manrope md:w-[50%] mx-4 text-center text-white text-lg opacity-[0.8] my-5">Menjaga warisan,
+                merajut kisah. Jelajahi jejak sejarah dan kekayaan budaya yang menghidupkan jati diri bangsa</p>
+        </div>
 
-        <!-- First Image with Text Overlay -->
-        <div class="relative w-9/12 h-[100em] mx-[10em]">
-            <img class="w-full h-full bg-white rounded" src="./assets/bg-wayang.png" />
-            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-t">
-                <p>Simulasi Wayang Kulit</p>
+        <!-- Cards Grid -->
+        <div class="max-w-5xl mx-auto space-y-6">
+            <!-- Card 1 -->
+            <div class="sticky top-24 z-10">
+                <div class="relative rounded-lg overflow-hidden h-[40em] md:h-[30em]">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black">
+                        <img src="./assets/bg-wayang.jpg" class="w-full h-full object-cover brightness-50" />
+                    </div>
+                    <div class="absolute inset-0 flex flex-col justify-between p-4">
+                        <div class="text-center flex flex-col items-center justify-center h-full">
+                            <h2 class="text-white text-5xl font-medium mb-2 font-averia">Wayang Kulit</h2>
+                            <a class="bg-[#FF5C35] hover:bg-[#FF704F] text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                                href="/wayang.html"> Telusuri </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="sticky top-24 z-20">
+                <div class="relative rounded-lg overflow-hidden h-[40em] md:h-[30em]">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black">
+                        <img src="./assets/batik/batikmerahbiru.jpg" class="w-full h-full object-cover brightness-50" />
+                    </div>
+                    <div class="absolute inset-0 flex flex-col justify-between p-4">
+                        <div class="text-center flex flex-col items-center justify-center h-full">
+                            <h2 class="text-white text-5xl font-medium mb-2 font-averia">Batik Mix&Match</h2>
+                            <a class="bg-[#FF5C35] hover:bg-[#FF704F] text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                                href="/batik.html"> Telusuri </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Second Image with Text Overlay -->
-        <div class="relative w-9/12 h-[100em] mx-[10em]">
-            <img class="w-full h-full bg-white rounded" src="./assets/batik/sekarjagad.jpg" />
-            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-t">
-                <p>Batik Sekar Jagad</p>
-            </div>
-        </div>
-    </div>
+    </section>
 
-
-
-    <footer class="bg-[#F85937] text-white py-6 h-[300px]">
+    <footer class="bg-[#F85937] text-white py-6 h-[300px] flex flex-col justify-between">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
             <!-- Logo di Kiri -->
             <div class="mb-4 md:mb-0">
-                <img src="./assets/logo.png" alt="Logo" class="w-24">
+                <img src="./assets/logo.png" alt="Logo" class="w-32">
             </div>
 
             <!-- Navigasi di Kanan -->
@@ -203,7 +214,7 @@
         </div>
 
         <!-- Copyright di Bawah -->
-        <div class="text-center text-gray-400 mt-4 text-sm">
+        <div class="text-center text-white-400 mt-4 text-sm">
             © 2025 TelusurKultur. All rights reserved.
         </div>
     </footer>
