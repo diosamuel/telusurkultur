@@ -10,18 +10,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&family=Manrope:wght@200..800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./js/fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.min.css">
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/Parallax.js v3.1.0/parallax-master/src/parallax.min.js"></script>
 </head>
 
 <body class="bg-[#1E1E1E]">
     <navbar></navbar>
-    <div class="relative overflow-hidden h-screen w-full" id="scene">
+    <div class="relative overflow-hidden h-screen w-full z-[-99]" id="scene">
         <!-- Background -->
         <img src="./assets/vintage.png" class="absolute inset-0 w-full h-full object-cover" />
 
-        <div class="my-24 absolute top-0 z-[99]">
-            <h1 class="font-averia text-white text-4xl text-center">Chapter 1. Semur Golek</h1>
+        <div class="my-24 absolute top-0 z-[99] w-full">
+            <h1 class="font-averia text-white text-4xl text-center" id="titleWayang">Ramalan dan Sayembara Sinta</h1>
         </div>
 
         <div data-depth="0.1" class="!absolute !left-[calc(50%-5em)] !top-[70%]">
@@ -32,24 +34,112 @@
         <img src="./assets/wave.png" data-depth="-0.4" class="!absolute !top-[calc(100%-5em)] w-full" />
 
         <!-- Wayang (Left) -->
-        <div data-depth="-0.4" class="!absolute !left-0 !top-[50%]">
-            <img src="./assets/wayang.png" class="w-[20em]" />
+        <div data-depth="-0.2" class="font-manrope opacity-[0.7]  p-3 bg-white rounded w-fit !top-[40%] !left-[5em]"><p id="namawayangleft"></p></div>
+        <div data-depth="-0.4" class="!absolute !left-0 !top-[40%]">
+            <img src="./assets/wayang.png" class="w-[20em] scale-x-[-1]" id="wayangleft" />
         </div>
-        <!-- Semar (Right) -->
-        <div data-depth="0.2" class="!absolute !left-[calc(100%-20em)] !top-[50%]">
-            <img src="./assets/semar.png" class="w-[20em] scale-x-[-1]" />
+        <!-- Wayang (Right) -->
+        <p data-depth="-0.5" class="font-manrope opacity-[0.7] p-3 bg-white rounded w-fit !top-[40%] !left-[calc(100%-10em)]" id="namawayangright"></p>
+        <div data-depth="0.2" class="!absolute !left-[calc(100%-20em)] !top-[40%]">
+            <img src="./assets/semar.png" class="w-[20em]" id="wayangright" />
         </div>
         <img src="./assets/wave.png" data-depth="0.7" class="!absolute !top-[calc(100%-5em)] w-full" />
     </div>
 
-    <div class="bg-white m-5 p-5 rounded-lg shadow-lg">
-        <h1 class="font-averia">Semar Golek</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ratione eius repellat, recusandae veniam quibusdam eveniet, ipsum praesentium harum, eaque non dignissimos aliquam? Et minima quos dolorum recusandae voluptates a.</p>
+    <div class="flex justify-between items-center absolute bottom-0 w-full">
+        <button class="p-5 bg-white m-5 h-fit rounded-xl" onclick="before()"><i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="bg-white m-5 p-5 rounded-lg shadow-lg">
+            <p class="font-manrope text-lg" id="deskripsi"></p>
+        </div>
+        <button class="p-5 bg-white m-3 h-fit rounded-xl" onclick="next()"><i class="fas fa-arrow-right"></i>
+        </button>
     </div>
 
     <script>
         let scene = document.getElementById('scene');
         let parallaxInstance = new Parallax(scene);
+
+        let alurWayang = [{
+            "kisah": [
+                {
+                    "title": "Ramalan dan Sayembara Sinta",
+                    "deskripsi": "Rama memenangkan sayembara dengan membentangkan busur Dewa Siwa dan menikahi Sinta.",
+                    "karakter": ["Sinta", "Rama"]
+                },
+                {
+                    "title": "Pengasingan ke Hutan Dandaka",
+                    "deskripsi": "Rama diusir ke hutan selama 14 tahun, Sinta dan Laksmana setia menemaninya.",
+                    "karakter": ["Sinta", "Laksamana"]
+                },
+                {
+                    "title": "Penculikan Sinta oleh Rahwana",
+                    "deskripsi": "Rahwana menculik Sinta dengan tipu daya dan membawanya ke Alengka.",
+                    "karakter": ["Sinta", "Rahwana"]
+                },
+                {
+                    "title": "Sinta di Kerajaan Alengka",
+                    "deskripsi": "Sinta ditahan di Taman Argasoka, menolak lamaran Rahwana dan tetap setia kepada Rama.",
+                    "karakter": ["Sinta", "Rahwana"]
+                },
+                {
+                    "title": "Bantuan dari Hanuman",
+                    "deskripsi": "Hanuman menemukan Sinta di Alengka, memberi harapan bahwa Rama akan menyelamatkannya.",
+                    "karakter": ["Sinta", "Hanuman"]
+                },
+                {
+                    "title": "Perang Besar di Alengka",
+                    "deskripsi": "Rama dan pasukan kera bertempur melawan Rahwana, hingga akhirnya Rahwana terbunuh.",
+                    "karakter": ["Rama", "Rahwana"]
+                },
+                {
+                    "title": "Ujian Kesetiaan Sinta",
+                    "deskripsi": "Sinta membuktikan kesuciannya dengan masuk ke dalam api, dan Rama menerimanya kembali.",
+                    "karakter": ["Sinta", "Rama"]
+                },
+                {
+                    "title": "Akhir Tragis Cinta Rama dan Sinta",
+                    "deskripsi": "Karena desas-desus rakyat, Sinta diasingkan, melahirkan Lawa dan Kusa, lalu menghilang ke dalam bumi.",
+                    "karakter": ["Sinta", "Rama"]
+                }
+            ]
+        }];
+
+        $(document).ready(function () {
+            let posisi = 0;
+
+            function updateTitle() {
+                $("#titleWayang").text(alurWayang[0].kisah[posisi].title);
+                $("#deskripsi").text(alurWayang[0].kisah[posisi].deskripsi);
+                $("#wayangright").attr("src", `./assets/${alurWayang[0].kisah[posisi].karakter[0]}.png`);
+                $("#namawayangright").text(alurWayang[0].kisah[posisi].karakter[0]);
+                $("#wayangleft").attr("src", `./assets/${alurWayang[0].kisah[posisi].karakter[1]}.png`);
+                $("#namawayangleft").text(alurWayang[0].kisah[posisi].karakter[1]);
+
+                console.log()
+            }
+
+            window.next = function () {
+                if (posisi < alurWayang[0].kisah.length - 1) {
+                    posisi++;
+                    updateTitle();
+                }
+            };
+
+            window.before = function () {
+                if (posisi > 0) {
+                    posisi--;
+                    updateTitle();
+                }
+            };
+
+            window.flip = function () {
+
+            }
+
+            // Set initial title
+            updateTitle();
+        });
     </script>
     <script src="./js/Navbar.js"></script>
 

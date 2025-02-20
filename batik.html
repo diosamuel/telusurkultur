@@ -16,19 +16,21 @@
 
 <body class="bg-[url(./assets/vintage.png)] bg-cover bg-center bg-no-repeat">
     <navbar></navbar>
-    <section class="w-full flex flex justify-center items-center">
-        <div class="container flex flex justify-center items-center">
-            <div class="flex flex-col gap-3 max-h-[500px] overflow-y-auto p-2 ml-5" id="pilihan-atasan">
-                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed">
-                    <h1 class="text-white font-manrope font-bold">Hapus Motif</h1>
+    <section class="w-full flex justify-center items-center">
+        <div class="container flex flex-col md:flex-row justify-center items-center">
+            <div class="flex flex-row md:flex-col gap-3 md:max-h-[500px] max-h-[200px] overflow-y-auto p-2 ml-5 md:order-1 order-3" id="pilihan-atasan">
+                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed cursor-pointer"
+                    onclick="hapusBaju()">
+                    <h1 class="text-white font-manrope font-bold text-sm w-full">Hapus Baju</h1>
                 </div>
             </div>
-            <div class="flex flex-col gap-3 max-h-[500px] overflow-y-auto p-2 ml-5" id="pilihan-bawahan">
-                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed">
-                    <h1 class="text-white font-manrope font-bold">Hapus Motif</h1>
+            <div class="flex flex-row md:flex-col gap-3 max-h-[500px] overflow-y-auto p-2 ml-5 order-2" id="pilihan-bawahan">
+                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed cursor-pointer"
+                    onclick="hapusCelana()">
+                    <h1 class="text-white font-manrope font-bold text-sm w-full">Hapus Celana</h1>
                 </div>
             </div>
-            <div class="h-screen w-full flex flex-col justify-center items-center scale-[1]">
+            <div class="h-screen w-full flex flex-col justify-center items-center scale-[1] md:order-2">
                 <!-- Karakter -->
                 <svg width="500" height="500" viewBox="0 0 500 500">
                     <image href="./assets/char.png" width="500" height="500" />
@@ -53,28 +55,57 @@
                         preserveAspectRatio="xMidYMid slice" />
                 </svg>
             </div>
-            <div class="flex flex-col gap-3 max-h-[500px] overflow-y-auto p-2 ml-5" id="batikbaju">
-                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed">
-                    <h1 class="text-white font-manrope font-bold">Upload Motif</h1>
-                </div>
-                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed">
-                    <h1 class="text-white font-manrope font-bold">Hapus Motif</h1>
+            <div class="order-4 mx-5">
+                <h1 class="ml-4 text-white font-bold">Atasan</h1>
+                <div class="flex flex-row md:flex-col gap-3 md:max-h-[500px] max-h-[200px] overflow-y-auto p-2 ml-5" id="batikbaju">
+                    <!-- <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed cursor-pointer"
+                        onclick="uploadMotif('baju')">
+                        <h1 class="text-white font-manrope font-bold">Upload Motif</h1>
+                    </div> -->
+                    <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed cursor-pointer"
+                        onclick="hapusMotif('baju')">
+                        <h1 class="text-white font-manrope font-bold text-sm w-full">Hapus Motif</h1>
+                    </div>
                 </div>
             </div>
-            <div class="flex flex-col gap-3 max-h-[500px] overflow-y-auto p-2 ml-5" id="batikcelana">
-                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed">
-                    <h1 class="text-white font-manrope font-bold">Upload Motif</h1>
-                </div>
-                <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed">
-                    <h1 class="text-white font-manrope font-bold">Hapus Motif</h1>
+            <div class="order-5 mx-5">
+                <h1 class="ml-4 text-white font-bold">Bawahan</h1>
+                <div class="flex flex-row md:flex-col gap-3 md:max-h-[500px] max-h-[200px] overflow-y-auto overflow-x-scroll p-2 ml-5" id="batikcelana">
+                    <!-- <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed cursor-pointer">
+                        <h1 class="text-white font-manrope font-bold">Upload Motif</h1>
+                    </div> -->
+                    <div class="p-2 bg-white/30 rounded shadow-lg border border-dashed cursor-pointer"
+                        onclick="hapusMotif('celana')">
+                        <h1 class="text-white font-manrope font-bold text-sm w-full">Hapus Motif</h1>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
-        // let scene = document.getElementById('scene');
-        // let parallaxInstance = new Parallax(scene);
+        function hapusBaju() {
+            let motifId = "#motif-batik-atas"
+            let bawahan = document.querySelector(motifId)
+            bawahan.removeAttributeNS("http://www.w3.org/1999/xlink", "href");
+        }
+        function hapusCelana() {
+            let motifId = "#motif-batik-bawah"
+            let bawahan = document.querySelector(motifId)
+            bawahan.removeAttributeNS("http://www.w3.org/1999/xlink", "href");
+        }
+
+        function hapusMotif(tipe) {
+            let motifId;
+            if (tipe == "celana") {
+                motifId = "#motif-batik-bawah"
+            } else {
+                motifId = "#motif-batik-atas"
+            }
+            let bawahan = document.querySelector(motifId)
+
+            bawahan.setAttributeNS("http://www.w3.org/1999/xlink", "href", "./assets/batik/white.png")
+        }
         function updateAtasanStyle(width, height, translateX, translateY) {
             const atasan = document.getElementById("atasan-parent");
 
@@ -106,7 +137,7 @@
             const container = document.getElementById(containerId);
             imageArray.forEach(image => {
                 const div = document.createElement("div");
-                div.className = "p-2 bg-white rounded shadow-lg";
+                div.className = "w-24 p-1 bg-white rounded shadow-lg";
                 let motifId;
                 if (tipe == "bawah") {
                     motifId = "#motif-batik-bawah"
@@ -120,7 +151,7 @@
 
                 const img = document.createElement("img");
                 img.src = `${folderPath}/${image}`;
-                img.className = "w-32 h-24 object-cover";
+                img.className = "w-32 h-24 object-cover cursor-pointer";
                 img.alt = image.split(".")[0];
 
                 div.appendChild(img);
@@ -136,7 +167,7 @@
             const container = document.getElementById(containerId);
             imageArray.forEach(image => {
                 const div = document.createElement("div");
-                div.className = "bg-[#F85937] p-5 w-fit rounded";
+                div.className = "bg-[#F85937] p-5 w-fit rounded cursor-pointer";
                 let motifId;
                 if (tipe == "bawah") {
                     motifId = "#pakaian-bawah"
